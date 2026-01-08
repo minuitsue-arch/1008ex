@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <title>9×9 乘法表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        body { font-family: system-ui, "Segoe UI", Roboto, "Noto Sans", Arial; padding: 20px; }
+        h1 { margin-bottom: 12px; }
+        table { border-collapse: collapse; }
+        td { padding: 6px 10px; border: 1px solid #ddd; text-align: center; white-space: nowrap; }
+        @media (max-width:420px){ td{padding:4px 6px;font-size:0.9rem} }
+    </style>
+</head>
+<body>
+    <h1>9×9 乘法表</h1>
+    <table id="multiplication"></table>
+
+<script>
+    // 產生完整 9×9 乘法表 (含行、列標頭)
+    const table = document.getElementById('multiplication');
+    table.innerHTML = ''; // 清空原本內容
+
+    const frag = document.createDocumentFragment();
+
+    // 標頭列（左上角留空）
+    const headRow = document.createElement('tr');
+    headRow.appendChild(document.createElement('td'));
+    for (let j = 1; j <= 9; j++) {
+        const td = document.createElement('td');
+        td.textContent = j;
+        headRow.appendChild(td);
+    }
+    frag.appendChild(headRow);
+
+    // 每一列：列標頭 + 1..9 的乘積
+    for (let i = 1; i <= 9; i++) {
+        const tr = document.createElement('tr');
+        const rowHeader = document.createElement('td');
+        rowHeader.textContent = i;
+        tr.appendChild(rowHeader);
+
+        for (let j = 1; j <= 9; j++) {
+            const td = document.createElement('td');
+            td.textContent = `${i}×${j}=${i * j}`;
+            tr.appendChild(td);
+        }
+        frag.appendChild(tr);
+    }
+
+    table.appendChild(frag);
+</script>
+</body>
+</html>

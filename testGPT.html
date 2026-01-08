@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <title>9×9 乘法表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        body { font-family: system-ui, "Segoe UI", Roboto, "Noto Sans", Arial; padding: 20px; }
+        h1 { margin-bottom: 12px; }
+        table { border-collapse: collapse; }
+        td { padding: 6px 10px; border: 1px solid #ddd; text-align: center; white-space: nowrap; }
+        @media (max-width:420px){ td{padding:4px 6px;font-size:0.9rem} }
+    </style>
+</head>
+<body>
+    <h1>9×9 乘法表</h1>
+    <table id="multiplication"></table>
+
+    <script>
+        // 產生傳統的下三角 9×9 乘法表 (1×1 到 9×9)
+        const table = document.getElementById('multiplication');
+        for (let i = 1; i <= 9; i++) {
+            const tr = document.createElement('tr');
+            for (let j = 1; j <= i; j++) {
+                const td = document.createElement('td');
+                td.textContent = `${j}×${i}=${i * j}`;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    </script>
+</body>
+</html>

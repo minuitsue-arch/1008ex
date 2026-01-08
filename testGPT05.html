@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <title>英文字母大小寫</title>
+    <style>
+        body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 24px; background:#fafafa; color:#111; }
+        h1 { margin-bottom: 12px; }
+
+        .label-row { display:grid; grid-template-columns: 1fr 1fr; gap:8px; max-width:120px; margin-bottom:8px; }
+        .label { font-size:0.95rem; color:#334155; }
+
+        .pairs { display:block; max-width:120px; }
+
+        .pair {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:12px;
+            align-items:center;
+            margin-bottom:10px;
+        }
+
+        .cell {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:14px;
+            border-radius:8px;
+            min-height:64px;
+            font-weight:700;
+            user-select:none;
+        }
+
+        /* 大寫：素面深藍 */
+        .upper {
+            background: #0b3d91;
+            color: #ffffff;
+            font-size:1.6rem;
+        }
+
+        /* 小寫：素面淺藍 */
+        .lower {
+            background: #93c5fd;
+            color: #062a4f;
+            font-size:1.6rem;
+            font-weight:100;
+        }
+
+        @media (max-width:560px){
+            .pair { grid-template-columns: 1fr; }
+            .cell { min-height:56px; padding:10px; }
+            .label-row { grid-template-columns: 1fr; margin-bottom:12px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>英文字母</h1>
+
+    <div class="label-row" aria-hidden="true">
+        <div class="label">大寫</div>
+        <div class="label">小寫</div>
+    </div>
+
+    <div class="pairs" role="list">
+        <!-- 動態生成 A..Z 的左右並置配對 -->
+    </div>
+
+    <script>
+        const pairs = document.querySelector('.pairs');
+        pairs.innerHTML = '';
+        const base = 'A'.charCodeAt(0);
+        for (let i = 0; i < 26; i++) {
+            const U = String.fromCharCode(base + i);
+            const L = U.toLowerCase();
+
+            const pair = document.createElement('div');
+            pair.className = 'pair';
+            pair.setAttribute('role','listitem');
+
+            const cu = document.createElement('div');
+            cu.className = 'cell upper';
+            cu.setAttribute('aria-label', '大寫 ' + U);
+            cu.textContent = U;
+
+            const cl = document.createElement('div');
+            cl.className = 'cell lower';
+            cl.setAttribute('aria-label', '小寫 ' + L);
+            cl.textContent = L;
+
+            pair.appendChild(cu);
+            pair.appendChild(cl);
+            pairs.appendChild(pair);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>導覽頁練習</title>
+    <style type="text/css">
+        #header {
+            width: 800px;
+            height: 100px;
+            background-color: pink;
+            color: rgb(165, 10, 49);
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #content {
+            /* 內容頁高度建議設成auto */
+            width: 800px;
+            height: auto;
+            background-color: #e6dd6b;
+            color: #222;
+            text-align: left;
+            font-size: 24px;
+        }
+
+        #footer {
+            width: 800px;
+            height: 100px;
+            background-color: darkred;
+            color: #e6dd6b;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* .為類別的樣式設定，其設定可以套用在多個元件上使用，套用語法為class=.點後關鍵字 */
+        .nav {
+            font-style: 24px;
+            margin-right: 15px;
+            text-decoration: none;
+            background-color: yellowgreen;
+            color: white;
+            padding: 5px;
+        }
+
+        /* hover為虛類別，當滑鼠移到該元件上時會產生的效果；無法單獨存在，只能搭配在已有的標籤或類別上使用 */
+        .nav:hover {
+            background-color: crimson;
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<!-- #header+#content+#footer -->
+<body>
+    <div id="header">
+        這是header的內容，一般用放於導覽列
+        <p><a href="http://tw.yahoo.com" target="_blank" class="nav">按我連到YAHOO!</a>
+            <a href="testGPT02.html" target="_blank" class="nav">testGPT</a>
+            <a href="try01.html" target="_blank" class="nav">try01</a>
+            <a href="try02.html" target="_blank" class="nav">try02</a>
+            <a href="try04.html" target="_blank" class="nav">try04</a>
+            <a href="try05.html" target="_blank" class="nav">try05</a>
+
+        </p>
+    </div>
+    <div id="content">
+        <img src="./7.jpg" width="400" height="300" alt="風景圖" title="風景圖"><br>
+        這是網頁的內容，一二三四五六七八九十。
+
+        <hr>
+        <!-- table>tr*3>td{簡單的資料$}*3    -->
+        <table border="4" width="400" height="300" background="6.jpg" bordercolor="purple">
+            <tr>
+                <td>簡單的資料1</td>
+                <td>簡單的資料2</td>
+                <td>簡單的資料3</td>
+            </tr>
+            <tr>
+                <td>簡單的資料1</td>
+                <td bgcolor="yellow">簡單的資料2</td>
+                <td>簡單的資料3</td>
+            </tr>
+            <tr>
+                <td>簡單的資料1</td>
+                <td>簡單的資料2</td>
+                <td>簡單的資料3</td>
+            </tr>
+        </table>
+        <hr>
+        <!-- table>tr>td{\*}+td{$}*5^(tr>td{$}+td{1*$=$}*5)*5 -->
+        <table border="1" bordercolor="green" bgcolor="#fff">
+            <tr>
+                <td>*</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td bgcolor="red">5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1*1=1</td>
+                <td>1*2=2</td>
+                <td>1*3=3</td>
+                <td>1*4=4</td>
+                <td bgcolor="red">1*5=5</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2*1=2</td>
+                <td>2*2=4</td>
+                <td>2*3=6</td>
+                <td>2*4=8</td>
+                <td bgcolor="red">2*5=10</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3*1=3</td>
+                <td>3*2=6</td>
+                <td>3*3=9</td>
+                <td>3*4=12</td>
+                <td bgcolor="red">3*5=15</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>4*1=4</td>
+                <td>4*2=8</td>
+                <td>4*3=12</td>
+                <td>4*4=16</td>
+                <td bgcolor="red">4*5=20</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td bgcolor="yellow">5*1=5</td>
+                <td bgcolor="yellow">5*2=10</td>
+                <td bgcolor="yellow">5*3=15</td>
+                <td bgcolor="yellow">5*4=20</td>
+                <td>5*5=25</td>
+            </tr>
+        </table>
+        <hr>
+        <p><a href="http://tw.yahoo.com">按我連到YAHOO!</a></p>
+        <!-- p>a>img -->
+        <p><a href="http://pchome.com.tw"><img src='6.jpg' alt=""></a></p>
+        <p><a href="mailto:rine1982@gmail.com">寄信給12號，蘇子夜</a></p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zawASAH7_ZY?si=KNopL1x279m94Wk7"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div id="footer">
+        這是footer的內容，一般用於放置版權與聯絡資訊
+    </div>
+</body>
+
+</html>
